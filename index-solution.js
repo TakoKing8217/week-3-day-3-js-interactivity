@@ -32,7 +32,7 @@ function addMovie(event) {
 
 function deleteMovie(event) {
   //intermediate
-  // message.textContent = `${event.target.parentNode.firstChild.textContent} deleted!`
+  //   message.textContent = `${event.target.parentNode.firstChild.textContent} deleted!`
 
   //core lab
   message.textContent = `Movie deleted!`;

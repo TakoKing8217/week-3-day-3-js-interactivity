@@ -27,17 +27,31 @@ const addMovie = (event) => {
   list.appendChild(movie);
 
   inputField.value = "";
+  message.textContent = "Movie added!";
+  revealMessage();
 };
 
 function deleteMovie(event) {
   event.target.parentNode.remove();
-  message.textContent = "Movie deleted!";
+  message.textContent = `${event.target.parentNode.firstChild.textContent} deleted!`;
+  revealMessage();
 }
 
 document.querySelector("form").addEventListener("submit", addMovie);
 
 const crossOffMovie = (event) => {
   event.target.classList.toggle("checked");
-  if (event.target.classList.contains("checked")) {message.textContent = "Movie Watched!";} 
-  else {message.textContent = "Movie Added Back"}
+  if (event.target.classList.contains("checked")) {
+    message.textContent = "Movie Watched!";
+  } else {
+    message.textContent = `Oop, Movie "unwatched"`;
+  }
+  revealMessage();
+};
+
+const revealMessage = () => {
+  message.classList.remove("hide");
+  setTimeout(() => {
+    message.classList.add("hide");
+  }, 1000);
 };
